@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html ng-app="USuoApp">
+<head>
+  <title>{% block title %}USuo Photo Center - Management Center{% endblock %}</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blue Moon - Responsive Admin Dashboard" />
+  <meta name="keywords" content="Notifications, Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Wrapbootstrap, Bootstrap, bootstrap.gallery" />
+  <meta name="author" content="Bootstrap Gallery" />
+  <link rel="shortcut icon" href="/bluemoon/img/favicon.ico">
+
+  {% block head %}
+
+  <link href="/bluemoon/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/bluemoon/css/new.css" rel="stylesheet">
+  <!-- Important. For Theming change primary-color variable in main.css  -->
+
+  <link href="/bluemoon/css/alertify.core.css" rel="stylesheet" id="toggleCSS">
+  <link href="/bluemoon/fonts/font-awesome.min.css" rel="stylesheet">
+
+  <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="/bluemoon/js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- jquery -->
+  <!--<script src="/bluemoon/js/jquery.js"></script>-->
+  <script src="/jquery/jquery.min.js"></script>
+  <script src="/jquery/jquery.cookie.js"></script>
+  <script src="/jquery/jquery.md5.js"></script>
+  <script src="/bluemoon/js/jquery.scrollUp.js"></script>
+  <!-- /jquery -->
+
+  <script src="/bluemoon/js/bootstrap.min.js"></script>
+
+  <!-- angular -->
+  <script src="/angular/angular.js"></script>
+  <script src="/angular/angular-ui-router.min.js"></script>
+  <script src="/angular/angular-cookies.min.js"></script>
+  <script src="/angular1app/app.js"></script>
+  <script src="/angular1app/flt/CommonFlt.js"></script>
+  <script src="/angular1app/ctl/RetrieveCtl.js"></script>
+  <script src="/angular1app/ctl/UploadCtl.js"></script>
+  <script src="/angular1app/ctl/ProfileCtl.js"></script>
+  <script src="/angular1app/svc/CommonSvc.js"></script>
+  <script src="/angular1app/svc/ConstantSvc.js"></script>
+  <script src="/angular1app/drt/CommonDrt.js"></script>
+  <script src="/angular1app/drt/RetrieveDrt.js"></script>
+  <!-- /angular -->
+
+  <!--<script src="/jquery/jquery.min.js"></script>-->
+  <!--<script src="/bootstrap/dist/bootstrap.min.js"></script>-->
+  <script type="text/javascript" src="/bluemoon/js/alertify.min.js"></script>
+  <script type="text/javascript" src="/underscore/underscore-min.js"></script>
+  <script type="text/javascript" src="/diy/lib/diyUtil.js"></script>
+  {% endblock%}
+</head>
+
+<body>
+<div style="display: none" id="initData">{{bag | json}}</div>
+<script>
+  $(function () {
+    var initData = $('#initData').html();
+    if (initData) window.bag = JSON.parse(initData);
+  });
+</script>
+
+<!-- Header Start -->
+<header>
+  <a href="index.html" class="logo">
+    <img src="/bluemoon/img/logo.png" alt="Logo"/>
+  </a>
+  <div class="pull-right">
+    <ul id="mini-nav" class="clearfix">
+      <li class="list-box user-profile">
+        <a id="drop7" href="#" role="button" class="dropdown-toggle user-avtar" data-toggle="dropdown">
+          <img id="avatarSmall" src="{% if bag.admin.avatar %}{{bag.admin.avatar}}?imageView2/1/w/44/h/44{% else %}/bluemoon/img/profile.png{% endif %}" alt="Bluemoon User">
+        </a>
+        <ul id="profile-nav" class="dropdown-menu server-activity">
+          <li>
+              <a href="profile" style="color:#333333;"><i class="fa fa-cog text-info"></i> 账户设置</a>
+          </li>
+          <li>
+            <div class="demo-btn-group clearfix">
+              <a href="/api/admin/logout">
+              <button  id="logout" class="btn btn-danger">
+                注销
+              </button></a>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+<!-- Header End -->
+
+<!-- Main Container start -->
+<div class="dashboard-container">
+
+  <div class="container">
+    <!-- Top Nav Start -->
+    <div id='cssmenu'>
+      {% for topNav in nav %}
+      {% if loop.first %}<ul>{% endif %}
+        <li {% if topNav.active %}class='active'{% endif %}>
+          <a href='{{topNav.a}}'>
+            <i class="fa {{topNav.i}}"></i>
+            {{topNav.title}}
+          </a>
+        </li>
+      {% if loop.last %}</ul>{% endif %}
+      {% endfor %}
+    </div>
+    <!-- Top Nav End -->
+
+    <!-- Sub Nav End -->
+    <div class="sub-nav hidden-sm hidden-xs">
+      {% for subNav in nav.sub %}
+        {% if loop.first %}
+        <ul>
+        {% endif %}
+          {% if loop.index0 == 0 %}
+          <li><a href="{{subNav.a}}" class="heading">{{subNav.title}}</a></li>
+          {% else %}
+          <li class="hidden-sm hidden-xs">
+            <a href="{{subNav.a}}" {% if subNav.active %} class="selected"{% endif %}>{{subNav.title}}</a>
+          </li>
+          {% endif %}
+        {% if loop.last %}
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <!-- Sub Nav End -->
+
+    <!-- Dashboard Wrapper Start -->
+    <div class="dashboard-wrapper">
+      {% block content %}{% endblock %}
+    </div>
+    <!-- Dashboard Wrapper End -->
+
+    <footer>
+      <p>© USuo Photo Center 2016</p>
+    </footer>
+
+  </div>
+</div>
+<!-- Main Container end -->
+
+
+<!-- Custom JS -->
+<script src="/bluemoon/js/menu.js"></script>
+
+<script type="text/javascript">
+  $(function () {
+    var initData = $('#initData').html();
+    if (initData) window.bag = JSON.parse(initData);
+  });
+  //ScrollUp
+  $(function () {
+    $.scrollUp({
+      scrollName: 'scrollUp', // Element ID
+      topDistance: '300', // Distance from top before showing element (px)
+      topSpeed: 300, // Speed back to top (ms)
+      animation: 'fade', // Fade, slide, none
+      animationInSpeed: 400, // Animation in speed (ms)
+      animationOutSpeed: 400, // Animation out speed (ms)
+      scrollText: 'Top', // Text for element
+      activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+    });
+  });
+
+  //Tooltip
+  $('a').tooltip('hide');
+
+  //Popover
+  $('.popover-pop').popover('hide');
+
+  //Dropdown
+  $('.dropdown-toggle').dropdown();
+</script>
+
+<script src="/diy/layout/layout.js"></script>
+
+</body>
+</html>

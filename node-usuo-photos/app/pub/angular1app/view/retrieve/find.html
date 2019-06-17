@@ -1,0 +1,195 @@
+<script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+<script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
+<!-- Row Start -->
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="widget">
+      <div class="widget-header">
+        <div class="title">
+          设置条件
+          <span class="mini-title">
+            满足多条件检索 <a id="create-account">图片</a>
+          </span>
+        </div>
+      </div>
+      <div class="widget-body">
+        <form class="form-horizontal no-margin">
+          <div class="form-group">
+            <label for="timeBegin" class="col-sm-2 control-label">时间</label>
+            <div class="col-sm-10">
+              <div class="row">
+
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                  <input id="timeBegin" class="form-control datetimepicker" placeholder="请选择时间" />
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                  <input id="timeEnd" class="form-control datetimepicker" placeholder="请选择时间" />
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="content" class="col-sm-2 control-label">包含文字</label>
+            <div class="col-sm-10">
+              <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                  <input type="text" class="form-control" id="content" placeholder="photo title">
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                  <select id="photoGenre" name="genre" class="form-control" >
+                    <option ng-repeat="genre in photoGenres" value="{{genre.mark}}">
+                      {{genre.name}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button ng-click="find()" class="btn btn-info">检索</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Row End -->
+<div ng-if="pageParts.display" class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="widget">
+      <div class="widget-header">
+        <div class="title">
+          Table
+        </div>
+        <span class="tools">
+          <i class="fa fa-cogs"></i>
+        </span>
+      </div>
+      <div class="widget-body">
+        <table  class="table table-responsive table-striped table-bordered table-hover no-margin">
+          <thead>
+            <tr>
+              <th style="width:30%">title</th>
+              <th style="width:10%" class="hidden-xs">类型</th>
+              <th style="width:20%" class="hidden-xs">上传人</th>
+              <th style="width:10%" class="hidden-xs">上传时间</th>
+              <th style="width:10%" class="hidden-xs">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="cargo in cargoes">
+              <td>
+                <span class="name">
+                  {{cargo.title}}
+                </span>
+              </td>
+              <td>
+                <span class="name">
+                  {{cargo.genreStr}}
+                </span>
+              </td>
+              <td>
+                {{cargo.creatorNickname || cargo.creatorId}}
+              </td>
+              <td>
+                <span class="label label-info">
+                  {{cargo.createdAtStr}}
+                </span>
+              </td>
+              <td class="hidden-xs">
+                <a data-toggle="modal" data-target="#cargoModal" ng-init="cargoInd = $index" ng-click="showCargo()" class="btn btn-warning btn-xs">查看</a>
+                <input type="hidden" id="cargoShowing"/>
+                <a href="#" class="btn btn-info btn-xs">下载</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <page-index parts="pageParts"></page-index>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<input type="hidden" id="cargoId" value="{{cargoShowing._id}}"/>
+<!-- Modal -->
+<div class="modal fade" id="cargoModal" tabindex="-1" role="dialog" aria-labelledby="modalLabelCargo" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title xt-danger" id="modalLabelCargo">{{cargoShowing.title}} 图片包的打开</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="row" ng-repeat="photo in photosShowing" photoId="{{photo._id}}">
+          <div class="col-sm-9 col-md-6">
+            <div class="thumbnail col-xs-12">
+              <img alt="" ng-src="{{photo.url && (photo.url + '?imageView2/1/w/300/h/350')}}" err-src="/bluemoon/img/profile.png" style="width: 300px; height: 350px;">
+              <div class="caption col-xs-12" >
+                <h6 style="overflow: hidden">{{photo.name}}</h6>
+                <p>{{photo.desc}}</p>
+                <p>
+                  <a data-toggle="modal" data-target="#cargoPhotoView" ng-init="photoUrl = photo.url" ng-click="showPhoto()" class="btn btn-primary col-xs-6" role="button">查看</a>
+                  <a href="{{photo.url}}" class="btn btn-default col-xs-6" role="button">下载</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-9 col-md-6">
+            <div class="thumbnail col-xs-12">
+              <img alt="" ng-src="{{photo.urlRevised && (photo.urlRevised + '?imageView2/1/w/300/h/350')}}" err-src="/bluemoon/img/profile.png" style="width: 300px; height: 350px;">
+              <div id="container{{$index}}" class="caption col-xs-12">
+                <h6 style="overflow: hidden">{{'revised__' + photo.name}}</h6>
+                <p>
+                  <a data-toggle="modal" data-target="#cargoPhotoView" ng-click="showPhoto()" class="btn btn-primary col-xs-4" role="button">查看</a>
+                  <a id="pickfiles{{$index}}" photo-revise ng-init="photoId = photo._id" class="btn btn-default col-xs-4" role="button">上传</a>
+                  <a href="{{photo.urlRevised}}" class="btn btn-default col-xs-4" role="button">下载</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="cargoPhotoView" tabindex="-1" role="dialog" aria-labelledby="modalLabelCargoPhoto" aria-hidden="true">
+  <div class="modal-dialog" style="width: 610px;">
+    <div class="modal-content">
+      <div class="modal-body" style="text-align: center; padding: 0 0;">
+        <img alt="600x700" ng-src="{{photoShowing}}" err-src="/bluemoon/img/saturation.png" style="width: 600px; height: 700px; text-align: center; vertical-align: middle">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $(function () {
+    $('.datetimepicker').datetimepicker();
+  });
+</script>
+
+<script src="/plupload/js/moxie.min.js"></script>
+<script src="/plupload/js/plupload.min.js"></script>
+<script src="/plupload/js/i18n/zh_CN.js"></script>
+<script src="/diy/upload/ui.js"></script>
+<script src="/qiniu/qiniu.js"></script>
+<script src="/diy/upload/highlight.js"></script>
+<script src="/diy/retrieve/retrieve.js"></script>

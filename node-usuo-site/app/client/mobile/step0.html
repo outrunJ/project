@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1.0, user-scalable=0" />
+  <link href="http://cdn.haimati.cn/MobileStatic/css/dist/base.css" rel="stylesheet">
+
+  <title>海马体照相馆-预约拍摄</title>
+  <link href="http://cdn.haimati.cn/MobileStatic/css/dist/easydropdown.css" type="text/css" rel="stylesheet"/>
+  <link href="http://cdn.haimati.cn/MobileStatic/css/dist/reservation0.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="main">
+  <div class="store">
+    <div class="g-center">
+      <div class="store-title">
+        <p class="title-ch">门店选择</p>
+        <p class="title-en">Store Location</p>
+      </div>
+      <div class="store-list">
+        <select class="dropdown" id="store-select">
+        </select>
+      </div>
+      <div class="store-img" id="store-img">
+        <img src="http://cdn.haimati.cn/MobileStatic/images/order-store.jpg">
+      </div>
+      <div class="store-intro" id="store-intro">
+        <p class="title">和达城旗舰店</p>
+        <p class="addr">地址：浙江省杭州市下沙文泽路和达城商场地下二层B201商铺</p>
+        <p>（文泽路地铁C出口直达）</p>
+        <p class="map"><a href="http://map.baidu.com/mobile/webapp/place/detail/qt=ninf&wd=%E5%92%8C%E8%BE%BE%E5%9F%8E&uid=925c550f358894cf5a3ac86e&vt=map">前往路线和地图 ></a></p>
+        <p class="phone">电话：0571-86781031</p>
+        <p class="wechat">客服微信：haimatizxg</p>
+        <p class="shophour">营业时间：10:00AM——21:00PM</p>
+        <p></p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="next-box" id="order-btn">
+    <div class="next">
+      <a href="javascript:;">预约</a>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="order-float-btn">
+    <div class="order-float-box">
+      <i class="order-icon"></i><p class="order-text">我要预约</p>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-banner" id="bottom-banner">
+  <div class="bottom-fix">
+    <div class="packages-banner"><a class="f-tap" href="/Mobile/product"><img src="http://cdn.haimati.cn/MobileStatic/css/images/m-packages-banner.png"></a></div>
+    <div class="showcase-banner"><a class="f-tap" href="/mobile/showcase.html"><img src="http://cdn.haimati.cn/MobileStatic/css/images/m-showcase-banner.png"></a></div>
+    <div class="reservation-banner"><a class="f-tap" href="/Mobile/step0"><img src="http://cdn.haimati.cn/MobileStatic/css/images/m-reservation-banner.png"></a></div>
+    <div class="personal-banner"><a class="f-tap" href="/Mobile/personalCenter"><img src="http://cdn.haimati.cn/MobileStatic/css/images/m-personal-banner.png"></a></div>
+  </div>
+</div>
+
+<script>
+  var module = '';
+  var m_static = 'http://cdn.haimati.cn/MobileStatic';
+</script>
+<script src="http://cdn.haimati.cn/MobileStatic/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="http://cdn.haimati.cn/MobileStatic/js/jquery.cookie.js" type="text/javascript"></script>
+<script src="http://cdn.haimati.cn/MobileStatic/js/base.js"></script>
+<script src="http://cdn.haimati.cn/MobileStatic/js/mbase.js"></script>
+
+<script>
+  var storeData = JSON.parse('{"1001":{"S_Id":"1001","S_Name":"\u676d\u5dde,\u4e0b\u6c99\u548c\u8fbe\u57ce","S_Address":"\u676d\u5dde\u5e02\u4e0b\u6c99\u6587\u6cfd\u8def\u548c\u8fbe\u57ce\u8d2d\u7269\u4e2d\u5fc3B2\u5c42<br>(\u6587\u6cfd\u8def\u5730\u94c1C\u51fa\u53e3\u76f4\u8fbe)","S_Photo":"http:\/\/img-haimati-root.b0.upaiyun.com\/upload\/photo_hdc.jpg","S_MapUrl":"http:\/\/j.map.baidu.com\/o4X5D","S_Phone":"0571-86781031","S_Wechat":"haimati2014","S_OpenTime":"10:00AM--22:00PM","S_Option":{"start":36000,"end":68400,"step":900,"place":3,"noproduct":"","couponLimit":70}},"1002":{"S_Id":"1002","S_Name":"\u676d\u5dde,\u6e56\u6ee8\u94f6\u6cf0","S_Address":"\u676d\u5dde\u5e02\u4e0a\u57ce\u533a\u5ef6\u5b89\u8def245\u53f7\u6e56\u6ee8\u94f6\u6cf0in77 B\u533a\u8d1f\u4e8c\u5c42<br>(\u5730\u94c1\u9f99\u7fd4\u6865\u7ad9C\u53e3\u76f4\u63a5\u8fdb\u5165\u5546\u573a)","S_Photo":"http:\/\/img-haimati-root.b0.upaiyun.com\/upload\/photo_in77.jpg","S_MapUrl":"http:\/\/j.map.baidu.com\/_5X5D","S_Phone":"0571-86781031","S_Wechat":"haimati2014","S_OpenTime":"10:00AM--22:00PM","S_Option":{"start":36000,"end":68400,"step":1200,"place":3,"noproduct":"11@12","couponLimit":25}},"1003":{"S_Id":"1003","S_Name":"\u4e49\u4e4c,\u5de5\u4eba\u897f\u8def","S_Address":"\u4e49\u4e4c\u5e02\u5de5\u4eba\u897f\u8def146\u53f7","S_Photo":"http:\/\/img-haimati-root.b0.upaiyun.com\/upload\/photo_yw.jpg","S_MapUrl":"http:\/\/j.map.baidu.com\/ZImRD","S_Phone":"0571-86781031","S_Wechat":"haimati2014","S_OpenTime":"10:00AM--21:00PM","S_Option":{"start":36000,"end":68400,"step":900,"place":3,"noproduct":"","couponLimit":20}},"1005":{"S_Id":"1005","S_Name":"\u53f0\u5dde,\u6912\u6c5f\u946b\u6cf0\u8857","S_Address":"\u53f0\u5dde\u5e02\u6912\u6c5f\u533a\u946b\u6cf0\u8857274\u53f7","S_Photo":"http:\/\/img-haimati-root.b0.upaiyun.com\/upload\/photo_tzymsh.jpg","S_MapUrl":"http:\/\/j.map.baidu.com\/Qx4d8","S_Phone":"0571-86781031","S_Wechat":"haimati2014","S_OpenTime":"10:00AM--22:00PM","S_Option":{"start":36000,"end":68400,"step":900,"place":3,"noproduct":"","couponLimit":24}}}');
+</script>
+<script src="http://cdn.haimati.cn/MobileStatic/js/pages/reservation0.js"></script>
+<script src="http://cdn.haimati.cn/MobileStatic/js/jquery.easydropdown.min.js" type="text/javascript"></script>
+
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?b60241e9b504a95c2f48d5dc03801eec";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</body>
+</html>

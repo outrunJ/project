@@ -1,0 +1,54 @@
+<div>
+    <label>
+        <div style="float: left">states:&nbsp;</div>
+        <ul ng-repeat="state in states" class="list-inline" style="float:left">
+            <li ng-click="snapRestore(state)"><a role="button">{{state.name}}</a></li>
+        </ul>
+    </label>
+</div>
+<div style="float: left">
+
+    <label>url: <input ng-model="url" auto-focus1="true" class="form-control"/></label><br/>
+
+    <label>params:
+        <div ng-repeat="param in params">
+            <input placeholder="key" value="{{param.key}}" ng-model="param.key"/>
+            <input placeholder="value" value="{{param.val}}" ng-model="param.val"/>
+            <a ng-init="curId=param.id" role="button" class="btn btn-default" ng-click="pullParam(this, $event)">-</a>
+            <select ng-init="param.type.id = 1"
+                    ng-options="opt.name for opt in dataTypes.options track by opt.id"
+                    ng-model="param.type"></select>
+        </div>
+        <a role="button" class="btn btn-default" ng-click="pushParam(this, $event)">+</a>
+    </label><br/>
+    <label>headers:
+        <div ng-repeat="header in headers">
+            <input placeholder="name" value="{{header.key}}" ng-model="header.key"/>
+            <input placeholder="value" value="{{header.val}}" ng-model="header.val"/>
+            <a ng-init="curId=header.id" role="button" class="btn btn-default" ng-click="pullHeader(this)">-</a>
+        </div>
+        <a role="button" class="btn btn-default" ng-click="pushHeader()">+</a>
+    </label><br/>
+
+    <label>cookies:
+        <div ng-repeat="cookie in cookies">
+            <input placeholder="name" value="{{cookie.key}}" ng-model="cookie.key"/>
+            <input placeholder="value" value="{{cookie.val}}" ng-model="cookie.val"/>
+            <a ng-init="curId=cookie.id" role="button" class="btn btn-default" ng-click="pullCookie(this)">-</a>
+        </div>
+        <a role="button" class="btn btn-default" ng-click="pushCookie()">+</a>
+    </label><br/>
+
+    <label>method: <select ng-init="method.id"
+                           ng-options="opt.name for opt in httpMethods.options track by opt.id"
+                           ng-model="method"></select>
+    </label>
+    <a role="button" class="btn btn-default" ng-click="httpSubmit()">submit</a><br/>
+    <label>
+        save current scene: <input placeholder="scene's name" ng-model="sceneName">
+        <a role="button" class="btn btn-default" ng-click="snapshot()">save</a>
+    </label>
+</div>
+<div style="float:left">
+    <label>result<textarea ng-model="result"></textarea></label>
+</div>

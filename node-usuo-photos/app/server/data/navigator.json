@@ -1,0 +1,54 @@
+[
+  {
+    "tagTitle": "Upload",
+    "title": "上传图片",
+    "i": "fa-picture-o",
+    "a": "./?topNav=0&subNav=1#/upload/admin",
+    "sub": [
+      {
+        "title": "上传图片",
+        "a": "./?topNav=0&subNav=1#/upload/admin"
+      },
+      {
+        "title": "上传到自己区域",
+        "a": "./?topNav=0&subNav=1#/upload/admin"
+      }
+    ]
+  },
+  {
+    "tagTitle": "Retrieve",
+    "title": "检索图片",
+    "i": "fa-dashboard",
+    "a": "./?topNav=1&subNav=1#/retrieve/selfFind",
+    "sub": [
+      {
+        "title": "检索图片",
+        "a": "./?topNav=1&subNav=1#/retrieve/selfFind"
+      },
+      {
+        "title": "个人已上传图片",
+        "a": "./?topNav=1&subNav=1#/retrieve/selfFind"
+      },
+      {
+        "title": "条件检索",
+        "a": "./?topNav=1&subNav=2#/retrieve/find"
+      }
+    ]
+  },
+  {
+    "tagTitle": "Profile",
+    "title": "个人中心",
+    "i": "fa-align-justify",
+    "a": "./?topNav=2&subNav=1#/profile/edit",
+    "sub": [
+      {
+        "title": "个人中心",
+        "a": "./?topNav=2&subNav=1#/profile/edit"
+      },
+      {
+        "title": "修改个人信息",
+        "a": "./?topNav=2&subNav=1#/profile/edit"
+      }
+    ]
+  }
+]

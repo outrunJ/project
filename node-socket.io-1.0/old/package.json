@@ -1,0 +1,17 @@
+{
+    "name": "aurora",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node app"
+    },
+    "dependencies": {
+        "node-uuid": "1.4.1",
+        "express": "3.4",
+        "socket.io": "0.9.16",
+        "mongodb": "1.4.9",
+        "generic-pool": "2.1.1",
+        "wind": "0.7.3",
+        "async": "0.9.0"
+    }
+}

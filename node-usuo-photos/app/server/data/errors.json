@@ -1,0 +1,20 @@
+{
+  "9000": {
+    "sysMsg": "服务器异常",
+    "bizMsg": "服务器异常"
+  },
+  "1001": {
+    "sysMsg": "wrong params",
+    "bizMsg": "wrong params"
+  },
+  "2001": {
+    "sysMsg": "db cannot found data",
+    "bizMsg": "db cannot found data"
+  },
+  "3001": {
+    "bizMsg": "用户名或密码错误"
+  },
+  "3002": {
+    "bizMsg": "该手机号已注册"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "super": [
+    [true, true],
+    [true, true, true],
+    [true, true]
+  ],
+  "normal": [
+    [true, true],
+    [true, true, false],
+    [true, true]
+  ]
+}

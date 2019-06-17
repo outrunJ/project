@@ -1,0 +1,38 @@
+{
+  "name": "normal-website",
+  "version": "1.0.0",
+  "private": "true",
+  "scripts": {
+    "start": "app.js"
+  },
+  "dependencies": {
+    "async": "^1.5.0",
+    "body-parser": "^1.12.4",
+    "connect": "^2.15.0",
+    "connect-redis": "^3.0.1",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.12.4",
+    "express-session": "^1.12.0",
+    "express-xml-bodyparser": "^0.0.7",
+    "log4js": "*",
+    "mongoose": "^4.0.1",
+    "q": "^1.0.1",
+    "request": "^2.69.0",
+    "require-dir": "^0.3.0",
+    "serve-favicon": "^2.2.1",
+    "serve-static": "^1.9.3",
+    "underscore": "^1.7.0",
+    "xml2js": "^0.4.6"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  },
+  "description": "a sample",
+  "main": "app.js",
+  "keywords": [
+    "node.js",
+    "sample"
+  ],
+  "author": "outrun",
+  "license": "ISC"
+}

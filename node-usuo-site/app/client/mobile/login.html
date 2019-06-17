@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1.0, user-scalable=0" />
+  <link href="http://cdn.haimati.cn/MobileStatic/css/dist/base.css" rel="stylesheet">
+
+  <title>登录</title>
+  <link href="http://cdn.haimati.cn/MobileStatic/css/dist/login.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+  </div>
+  <div class="lg_content">
+    <form>
+      <div class="user">
+        <div class="lg_img"></div>
+        <input class="lg_input" id="input-user" type="number" placeholder="请输入您的手机号码" value="">
+        <div class="clearfix"></div>
+      </div>
+      <div class="lg_border"></div>
+      <div class="password">
+        <div class="lg_img"></div>
+        <input class="lg_input" id="input-pass" type="password" placeholder="请输入您的密码" value="">
+        <div class="clearfix"></div>
+      </div>
+      <div class="lg_border"></div>
+      <input class="login_btn" id="btn-login" type="button" value="登录">
+    </form>
+    <div class="lg_txt">
+      <ul class="lg_txt_ul">
+        <li class="register"><a href="/Mobile/register">用户注册</a></li>
+        <li class="fg_pw"><a href="/Mobile/forget">忘记密码</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer">
+    <p>All Rights Reserved.Design by MANTU</p>
+  </div>
+</div>
+
+<script>
+  var module = '';
+  var m_static = 'http://cdn.haimati.cn/MobileStatic';
+</script>
+<script src="http://cdn.haimati.cn/MobileStatic/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="http://cdn.haimati.cn/MobileStatic/js/jquery.cookie.js" type="text/javascript"></script>
+<script src="http://cdn.haimati.cn/MobileStatic/js/base.js"></script>
+<script src="http://cdn.haimati.cn/MobileStatic/js/mbase.js"></script>
+
+<script>
+  var openid = "0";
+  var bindaid = "0";
+</script>
+<script src="/mobile/diy/login/login.js"></script>
+
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?b60241e9b504a95c2f48d5dc03801eec";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</body>
+</html>

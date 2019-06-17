@@ -1,0 +1,7 @@
+<div ng-show="_pageParts.display" style="text-align: center;margin-top: 10px;" >
+  <ul class="pagination no-margin" style="display: inline-block;" >
+    <li ng-class="{false: 'disabled'}[_pageParts.prevEnable]" ng-if="_pageParts.totalCount != 0"><a ng-click="go2Page()" ng-init="curPageNum = page.num - 1">«</a></li>
+    <li ng-class="{true:'active'}[page.active]" ng-repeat="page in _pageParts.pages" ><a ng-click="go2Page()" value="{{page.num}}" ng-init="curPageNum = page.num">{{page.num}}</a></li>
+    <li ng-class="{false: 'disabled'}[_pageParts.nextEnable]" ng-if="_pageParts.totalCount != 0"><a ng-click="go2Page()" ng-init="curPageNum = page.num + 1">»</a></li>
+  </ul>
+</div>

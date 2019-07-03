@@ -1,8 +1,0 @@
-{
-  "name": "application-name",
-  "version": "0.0.1",
-  "dependencies" : {
-    "request": "^2.69.0",
-    "jsdom": "^8.0.4"
-  }
-}

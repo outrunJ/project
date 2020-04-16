@@ -6,7 +6,7 @@
         "start": "node app"
     },
     "dependencies": {
-        "node-uuid": "1.4.1",
+        "node-uuid": "1.4.8",
         "express": "3.4",
         "socket.io": "0.9.16",
         "mongodb": "1.4.9",
